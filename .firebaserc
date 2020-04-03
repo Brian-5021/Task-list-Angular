@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tasklist-d5813": {
+      "hosting": {
+        "taskList": [
+          "tasklist-d5813"
+        ]
+      }
+    }
+  }
+}

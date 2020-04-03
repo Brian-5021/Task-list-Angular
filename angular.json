@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "taskList": {
@@ -117,8 +117,16 @@
               "devServerTarget": "taskList:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "taskList"
+    }
+  },
+  "defaultProject": "taskList",
+  "cli": {
+    "analytics": "368a55c9-93f9-402c-95ed-3b1f31018d8a"
+  }
 }
