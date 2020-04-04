@@ -1,0 +1,11 @@
+.img-task{
+    height: 100%;
+}
+
+.presentClass{
+    background-image: url("https://img.freepik.com/foto-gratis/fondo-borroso-bosque-tropical_99433-2920.jpg?size=626&ext=jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}

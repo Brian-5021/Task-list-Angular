@@ -8,6 +8,7 @@ import { DiaComponent } from './dia/dia.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { PresentacionComponent } from './presentacion/presentacion.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -16,7 +17,8 @@ import { PresentacionComponent } from './presentacion/presentacion.component';
     AppComponent,
     NavBarComponent,
     DiaComponent,
-    PresentacionComponent
+    PresentacionComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
