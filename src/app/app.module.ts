@@ -9,6 +9,10 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { PresentacionComponent } from './presentacion/presentacion.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
+
+
 
 
 
@@ -19,11 +23,15 @@ import { FooterComponent } from './footer/footer.component';
     DiaComponent,
     PresentacionComponent,
     FooterComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    NgxPaginationModule,
     AngularFireModule.initializeApp(environment.firebase)
+
   ],
   providers: [],
   bootstrap: [AppComponent]

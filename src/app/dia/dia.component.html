@@ -1,11 +1,102 @@
-<div class="container">
-    <div class="row">
-        <div class="col-6">
-            <ul>
-                <li *ngFor="let item of listaTareas | async">
-                    {{item.name}} 
-                </li>
-            </ul>
-        </div>
-    </div>
+<div class="diaClass my-2">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-4 col-sm-12">
+              <div class="container my-5">
+              <!-- weather widget start --><a target="_blank" href="https://hotelmix.es/weather/medellin-19102"><img src="https://w.bookcdn.com/weather/picture/32_19102_1_4_34495e_250_2c3e50_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=124&domid=582&anc_id=66770"  alt="booked.net"/></a><!-- weather widget end -->
+            </div>
+          </div>        
+          <div class="col-md-7 col-sm-12 my-5 ml-1">
+              
+              <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">
+                  Agregar nueva Tarea
+              </button>
+              <div class="alert alert-primary my-1 bg-inverse" role="alert" *ngFor="let item of listaTareas | async">
+                
+                  {{item.name}} 
+                  <div class="float-right" data-toggle="modal" data-target="#exampleModal1">
+                    <i class="far fa-trash-alt"></i>
+                  </div>
+                  <div class="float-right mr-2" (click)="editar(item)" data-toggle="modal" data-target="#exampleModal2">
+                    <i class="fas fa-pencil-alt"></i>
+                  </div>              
+              </div>
+              
+          </div>
+      </div>
+  </div>
 </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Agregar tarea</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form (ngSubmit)="agregar()">
+                <input type="text" placeholder="Ingresa tu tarea"
+                 name="name" class="form-control my-3"
+                 [(ngModel)]="tareas.name" 
+                 >
+                <button class="btn btn-block btn-dark" type="submit">Agregar</button>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Modal confirmación-->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content bg-inverse">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-warning my-1 bg-inverse" role="alert" *ngFor="let item of listaTareas | async">
+            
+            <div class="text-center">
+              <h4>¿Estás seguro?</h4>
+            </div>
+            </div>  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" >Cancelar</button>
+          <button type="button" class="btn btn-primary"  *ngFor="let item of listaTareas | async" (click)="eliminar(item)">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Editar-->
+
+  <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-body">
+            <form (ngSubmit)="agregaritemeditado()">
+                <input type="text" placeholder="Ingresa tu tarea"
+                 name="name" class="form-control my-3"
+                 [(ngModel)]="editarlista.name" 
+                 >
+                <button class="btn btn-block btn-dark" type="submit">Agregar</button>
+            </form>
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
